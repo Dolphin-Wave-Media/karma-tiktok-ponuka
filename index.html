@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Karma Be Special — TikTok Ads 2026</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --card: #181818;
+    --card2: #1f1f1f;
+    --border: #2a2a2a;
+    --gold: #D4AF37;
+    --gold2: #F5CC4A;
+    --white: #ffffff;
+    --text: #e8e8e8;
+    --muted: #888888;
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,10,0.97);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 52px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; }
+  .nav-k { background: var(--gold); color: #000; font-size: 13px; font-weight: 900; padding: 3px 9px; border-radius: 4px; letter-spacing: 1px; }
+  .nav-name { font-size: 13px; font-weight: 700; color: var(--white); }
+  .nav-right { font-size: 11px; color: var(--muted); }
+
+  main { max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  section { margin-bottom: 56px; }
+
+  .label {
+    display: inline-block;
+    font-size: 10px; font-weight: 800; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 900; color: var(--white); line-height: 1.05; margin-bottom: 10px; }
+  h2 { font-size: 1.5rem; font-weight: 800; color: var(--white); margin-bottom: 8px; }
+  h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .sub { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+
+  hr { border: none; border-top: 1px solid var(--border); margin: 48px 0; }
+
+  /* GRIDS */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
+
+  /* CARD */
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 22px;
+  }
+  .card.gold-border { border-color: rgba(212,175,55,0.4); }
+
+  /* KPI */
+  .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 18px; }
+  .kpi-label { font-size: 10px; font-weight: 700; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .kpi-value { font-size: 2rem; font-weight: 900; color: var(--white); line-height: 1; }
+  .kpi-value.gold { color: var(--gold); }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
+
+  /* HERO BADGE */
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);
+    color: var(--gold2); font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    text-transform: uppercase; padding: 5px 14px; border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .dot-live { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: inline-block; }
+
+  /* TABLE */
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; padding: 9px 12px; font-size: 10px; font-weight: 800; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+  td { padding: 12px 12px; font-size: 13px; color: var(--text); border-bottom: 1px solid rgba(42,42,42,0.6); }
+  tr:last-child td { border-bottom: none; }
+  .row-total td { font-weight: 800; color: var(--white); background: rgba(212,175,55,0.06); border-top: 1px solid var(--border); }
+
+  /* PILL */
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 100px; font-size: 11px; font-weight: 700; }
+  .pill.gold { background: rgba(212,175,55,0.15); color: var(--gold2); }
+  .pill.white { background: rgba(255,255,255,0.08); color: #ccc; }
+  .pill.green { background: rgba(46,184,92,0.15); color: #5dde88; }
+
+  /* PROOF / CASE STUDY */
+  .case-box {
+    background: linear-gradient(135deg, #181400 0%, #1f1a00 100%);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: var(--radius); padding: 28px 32px;
+  }
+  .case-tag { font-size: 10px; font-weight: 800; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+  .case-title { font-size: 1.3rem; font-weight: 900; color: var(--white); margin-bottom: 10px; }
+  .case-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .case-stats { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+  .case-stat-val { font-size: 1.6rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .case-stat-label { font-size: 10px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* REACH BOX */
+  .reach-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px;
+    text-align: center;
+  }
+  .reach-num { font-size: 2.2rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .reach-label { font-size: 11px; color: var(--muted); margin-top: 5px; }
+
+  /* DELIVERABLES */
+  .deliver-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .deliver-list li { display: flex; gap: 10px; font-size: 13px; color: var(--text); }
+  .deliver-list li::before { content: "→"; color: var(--gold); font-weight: 800; flex-shrink: 0; }
+
+  /* PRICING */
+  .price-box {
+    background: var(--card); border: 1.5px solid rgba(212,175,55,0.4);
+    border-radius: var(--radius); padding: 28px;
+    text-align: center;
+  }
+  .price-main { font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; }
+  .price-label { font-size: 11px; color: var(--muted); margin-top: 5px; letter-spacing: 1px; text-transform: uppercase; }
+  .price-desc { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
+
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, #181400, #1a1700);
+    border: 1px solid rgba(212,175,55,0.3);
+    border-radius: var(--radius); padding: 40px;
+    text-align: center;
+  }
+  .cta-box h2 { font-size: 1.8rem; margin-bottom: 8px; }
+  .cta-box p { color: var(--muted); font-size: 13px; margin-bottom: 24px; }
+  .btn {
+    display: inline-block;
+    background: var(--gold); color: #000;
+    font-size: 13px; font-weight: 900; padding: 12px 28px;
+    border-radius: 100px; text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  /* WHAT WE DO cards */
+  .step { display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+  .step:last-child { border-bottom: none; }
+  .step-num { width: 32px; height: 32px; background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.3); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 900; color: var(--gold); flex-shrink: 0; }
+  .step-title { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+  .step-desc { font-size: 12px; color: var(--muted); }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--border); padding: 24px 32px; text-align: center; font-size: 11px; color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    nav { padding: 0 16px; }
+    main { padding: 28px 16px 60px; }
+    .case-box { padding: 20px; }
+    .cta-box { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <span class="nav-k">K</span>
+    <span class="nav-name">Karma Be Special × TikTok Ads</span>
+  </div>
+  <div class="nav-right">Dolphin Wave Media · 2026</div>
+</nav>
+
+<main>
+
+<!-- ─── HERO ─── -->
+<section>
+  <div class="badge"><span class="dot-live"></span> TikTok — neprebádaný kanál</div>
+  <h1>Karma je pripravená<br>na TikTok.</h1>
+  <p class="sub" style="max-width:520px; font-size:15px; line-height:1.6;">Máte obsah. Máte produkt. Máte maržu. Chýba len správne nastavená platená reklama a niekto, kto to postrá.</p>
+
+  <div class="grid-4">
+    <div class="kpi">
+      <div class="kpi-label">Mesačný obrat</div>
+      <div class="kpi-value gold">750+</div>
+      <div class="kpi-sub">tričiek / mesiac · rekord mar.</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Marža na produkte</div>
+      <div class="kpi-value gold">~50%</div>
+      <div class="kpi-sub">výroba na Slovensku</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">TikTok teraz</div>
+      <div class="kpi-value" style="font-size:1.5rem; color:#888;">100–500</div>
+      <div class="kpi-sub">views / video · nulové ads</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Potenciálny dosah</div>
+      <div class="kpi-value gold">1.2M+</div>
+      <div class="kpi-sub">ľudí · CZ + PL + SK</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── PREČO TIKTOK TERAZ ─── -->
+<section>
+  <div class="label">Situácia</div>
+  <h2>Kde Karma stojí dnes</h2>
+  <p class="sub">Meta funguje, Instagram rastie. TikTok je zatiaľ nulový — a to je príležitosť, nie problém.</p>
+
+  <div class="card" style="padding:0; overflow:hidden; margin-bottom:16px;">
+    <table>
+      <thead>
+        <tr>
+          <th>Kanál</th>
+          <th>Stav</th>
+          <th>Platená reklama</th>
+          <th>Potenciál</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:var(--white);">Meta (FB/IG)</strong></td>
+          <td><span class="pill green">Funguje</span></td>
+          <td>Áno · niekto iný</td>
+          <td style="color:var(--muted);">Obsadené</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--white);">TikTok organic</strong></td>
+          <td><span class="pill white">Slabý</span></td>
+          <td>Žiadna</td>
+          <td style="color:var(--gold); font-weight:800;">Obrovský ↑</td>
+        </tr>
+        <tr>
+          <td><strong style="color:var(--white);">TikTok Ads</strong></td>
+          <td><span class="pill white">Nespustené</span></td>
+          <td>€0</td>
+          <td style="color:var(--gold); font-weight:800;">Okamžitý štart ↑</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card gold-border">
+    <h3 style="color:var(--gold); margin-bottom:6px;">Kľúčová výhoda: existujúci obsah</h3>
+    <p style="font-size:13px; color:var(--muted); line-height:1.6;">Nemusia vznikať nové videá. Vaše existujúce videá z Instagramu a TikToku spustíme ako platené reklamy — otestujeme čo funguje, škálujeme víťazov. Rýchly štart bez extra produkcie.</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── PRÍPADOVÁ ŠTÚDIA SIMA STAR ─── -->
+<section>
+  <div class="label">Prípadová štúdia</div>
+  <h2>Sima Star — ako to ide, keď sa to robí správne</h2>
+  <p class="sub">Slovenský streetwear brand. Nový koncept na trhu. Organický rast cez autentický obsah.</p>
+
+  <div class="case-box">
+    <div class="case-tag">Prípadová štúdia · Sima Star</div>
+    <div class="case-title">Ružová šiltovka, ktorá zmenila pravidlá</div>
+    <div class="case-desc">
+      Sima Star vstúpil na trh s konceptom, ktorý v Čechách neexistoval — brandované šiltovky s osobnosťou. Namiesto štúdiových produktových videí natáčali street interviews, autentické rozhovory a behind-the-scenes obsah. Výsledok: virálny rast bez platenej reklamy, prvý drop vypredaný do týždňov od spustenia.
+      <br><br>
+      <strong style="color:var(--white);">Hlavná lekcia:</strong> Obsah, ktorý nevyzerá ako reklama, konvertuje výrazne lepšie. Práve to plánujeme aplikovať na Karmu na TikToku — autentický obsah z výroby, street formáty, POV videá.
+    </div>
+    <div class="case-stats">
+      <div>
+        <div class="case-stat-val">10k+</div>
+        <div class="case-stat-label">views na kľúčových videách</div>
+      </div>
+      <div>
+        <div class="case-stat-val">0→11k</div>
+        <div class="case-stat-label">followeri od nuly</div>
+      </div>
+      <div>
+        <div class="case-stat-val">Vypredané</div>
+        <div class="case-stat-label">prvý drop</div>
+      </div>
+      <div>
+        <div class="case-stat-val">Organika</div>
+        <div class="case-stat-label">hlavný driver rastu</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── POTENCIÁLNY DOSAH ─── -->
+<section>
+  <div class="label">Dosah</div>
+  <h2>Koľko ľudí môžeme osloviť</h2>
+  <p class="sub">TikTok Ads Manager · cielenie: muži 20–30 · oblečenie · SK + CZ + PL</p>
+
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="reach-box">
+      <div class="reach-num">1.2M</div>
+      <div class="reach-label">Konzervatívny odhad<br>CZ + PL</div>
+    </div>
+    <div class="reach-box" style="border-color:rgba(212,175,55,0.4); background:linear-gradient(135deg,#181400,#1f1a00);">
+      <div class="reach-num" style="font-size:2.8rem;">2.2M</div>
+      <div class="reach-label" style="color:var(--gold);">Optimistický odhad<br>CZ + PL + SK</div>
+    </div>
+    <div class="reach-box">
+      <div class="reach-num">€900</div>
+      <div class="reach-label">Budget / mesiac<br>do TikTok reklám</div>
+    </div>
+  </div>
+
+  <div class="card" style="background:#181400; border-color:rgba(212,175,55,0.2);">
+    <p style="font-size:13px; color:var(--muted); line-height:1.65;">
+      Pre porovnanie: Meta dáva Karma mesačne ~€4 000 do reklamy. TikTok s €900/mes. je test s obmedzeným rizikom — ak ROAS vyjde, škálujeme. Ak nie, optimalizujeme obsah.
+      <strong style="color:var(--white);">Pri 50% marži a cene tričky €42 stačí 22 predajov/mesiac na pokrytie celého ad spend.</strong>
+    </p>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── ČO ROBÍME ─── -->
+<section>
+  <div class="label">Čo dostanete</div>
+  <h2>Čo je v spolupráci zahrnuté</h2>
+  <p class="sub" style="margin-bottom:20px;">Stačí prideliť prístup. Zvyšok je na nás.</p>
+
+  <div class="card">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Setup & Pixel tracking</div>
+        <div class="step-desc">Napojenie TikTok Pixelu na Shoptet (natívna integrácia). Tracking každej objednávky z TikToku — vidíme presne koľko nás stojí jeden predaj.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Spustenie kampaní z existujúceho obsahu</div>
+        <div class="step-desc">Vaše najlepšie videá (Instagram + TikTok) zaradíme do platených kampaní. Žiadna extra produkcia v 1. mesiaci — testujeme čo konvertuje.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Strategické rozdelenie budgetu</div>
+        <div class="step-desc">TOF (studená publika) + retargeting. Cieľovanie: muži 20–30, SK/CZ/PL, záujem o streetwear a módu. Škálovanie podľa výsledkov.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <div class="step-title">Mesačný reporting</div>
+        <div class="step-desc">Jasné čísla: koľko sme minuli, koľko predajov prišlo z TikToku, cena za predaj, ROAS. Žiadne opscourityné metriky — len výsledky.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div>
+        <div class="step-title">Optimalizácia a odporúčania obsahu</div>
+        <div class="step-desc">Na základe dát z kampaní vieme povedať, aký typ obsahu najviac konvertuje. Postupne vedieme produkciu smerom k formátom, ktoré fungujú.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── PRICING ─── -->
+<section>
+  <div class="label">Cenník</div>
+  <h2>Transparentný pricing</h2>
+  <p class="sub" style="margin-bottom:24px;">Fixná časť + výkonnostná odmena. Platíte viac, keď my prinášame viac.</p>
+
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="price-box">
+      <div class="price-main">€450</div>
+      <div class="price-label">Fix / mesiac</div>
+      <div class="price-desc">Správa kampaní, optimalizácia, reporting, komunikácia. Každý mesiac.</div>
+    </div>
+    <div class="price-box">
+      <div class="price-main">€200</div>
+      <div class="price-label">Setup fee · jednorazovo</div>
+      <div class="price-desc">Pixel setup, štruktúra kampaní, nastavenie trackingu, audit existujúceho obsahu.</div>
+    </div>
+    <div class="price-box" style="background:linear-gradient(135deg,#181400,#1f1a00);">
+      <div class="price-main">10%</div>
+      <div class="price-label">Z TikTok obratu</div>
+      <div class="price-desc">Percento z obratu preukazateľne prineseného z TikTok kampaní. Motivácia na výsledok.</div>
+    </div>
+  </div>
+
+  <div class="card gold-border">
+    <h3 style="margin-bottom:10px;">Jednoduchý príklad výpočtu</h3>
+    <div class="card" style="padding:0; overflow:hidden; background:var(--card2);">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenár</th>
+            <th>TikTok obrat</th>
+            <th>Vaša marža (50%)</th>
+            <th>Naša odmena celkom</th>
+            <th>Váš čistý zisk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Konzervatívny</td>
+            <td>€2 000</td>
+            <td>€1 000</td>
+            <td style="color:var(--muted);">€450 + €200 + €200</td>
+            <td style="color:var(--gold); font-weight:800;">€150</td>
+          </tr>
+          <tr>
+            <td>Realistický</td>
+            <td>€5 000</td>
+            <td>€2 500</td>
+            <td style="color:var(--muted);">€450 + €500</td>
+            <td style="color:var(--gold); font-weight:800;">€1 550</td>
+          </tr>
+          <tr class="row-total">
+            <td>Optimistický</td>
+            <td>€10 000</td>
+            <td>€5 000</td>
+            <td style="color:var(--muted);">€450 + €1 000</td>
+            <td style="color:var(--gold);">€3 550</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px; color:var(--muted); margin-top:10px;">* Nezahŕňa ad spend €900/mes. ktorý ide priamo TikToku. Setup fee €200 iba v 1. mesiaci.</p>
+  </div>
+</section>
+
+<hr>
+
+<!-- ─── CTA ─── -->
+<section>
+  <div class="cta-box">
+    <h2>Ideme do toho?</h2>
+    <p>Prvý mesiac je test. Spustíme, sledujeme, vyhodnotíme. Ak čísla dávajú zmysel — škálujeme.</p>
+    <a href="mailto:damiandrahovsky@gmail.com" class="btn">📩 Dohodnúť spoluprácu</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div style="margin-bottom:5px;">
+    <span style="background:var(--gold); color:#000; font-size:11px; font-weight:900; padding:2px 7px; border-radius:3px; margin-right:8px;">K</span>
+    <strong style="color:var(--white);">Karma Be Special</strong>
+    <span style="color:var(--border); margin:0 8px;">×</span>
+    <span style="color:var(--muted);">Dolphin Wave Media</span>
+  </div>
+  <p>TikTok Ads Proposal · 2026 · Pripravil: Damián Drahovsky · damiandrahovsky@gmail.com</p>
+</footer>
+
+</body>
+</html>
